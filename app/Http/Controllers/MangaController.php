@@ -25,12 +25,10 @@ class MangaController extends Controller
             'artist' => 'required',
             'genre' => 'required',
             'sinopsis' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cover_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'rating' => 'required|numeric|min:0|max:10'
         ]);
 
-        $imagePath = $request->file('img')->store('images', 'public');
         $coverImagePath = $request->file('cover_img')->store('images', 'public');
 
         Manga::create([
@@ -38,7 +36,6 @@ class MangaController extends Controller
             'artist' => $request->input('artist'),
             'genre' => $request->input('genre'),
             'sinopsis' => $request->input('sinopsis'),
-            'image' => $imagePath,
             'cover_image' => $coverImagePath,
             'rating' => $request->input('rating')
         ]);
@@ -63,7 +60,6 @@ class MangaController extends Controller
             'artist' => 'required',
             'genre' => 'required',
             'sinopsis' => 'required',
-            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cover_img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'rating' => 'required|numeric|min:0|max:10'
         ]);
@@ -73,11 +69,6 @@ class MangaController extends Controller
         $manga->genre = $request->input('genre');
         $manga->sinopsis = $request->input('sinopsis');
         $manga->rating = $request->input('rating');
-
-        if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('images', 'public');
-            $manga->image = $imagePath;
-        }
 
         if ($request->hasFile('cover_img')) {
             $coverImagePath = $request->file('cover_img')->store('images', 'public');
@@ -90,9 +81,6 @@ class MangaController extends Controller
 
     public function destroy(Manga $manga)
     {
-        if (Storage::exists('public/' . $manga->image)) {
-            Storage::delete('public/' . $manga->image);
-        }
 
         if (Storage::exists('public/' . $manga->cover_image)) {
             Storage::delete('public/' . $manga->cover_image);

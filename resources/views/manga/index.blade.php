@@ -28,6 +28,7 @@
                     @endif
                     <p class="card-text"><strong>Rating:</strong> {{ $ma->rating }}</p>
                     <a href="{{ route('manga.edit', $ma->id) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ route('manga.edit', $ma->id) }}" class="btn btn-info">tambah chapter</a>
                     
                     <form action="{{ route('manga.destroy', $ma->id) }}" method="post" style="display:inline;">
                         @csrf

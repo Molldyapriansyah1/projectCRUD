@@ -31,14 +31,6 @@
         <textarea class="form-control" id="sinopsis" name="sinopsis" required></textarea>
     </div>
     <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input type="number" class="form-control" id="rating" name="rating" required>
-    </div>
-    <div class="mb-3">
-        <label for="img" class="form-label">Gambar Manga</label>
-        <input type="file" class="form-control" id="img" accept="image/*" name="img" required>
-    </div>
-    <div class="mb-3">
         <label for="cover_img" class="form-label">Cover Manga</label>
         <input type="file" class="form-control" id="cover_img" accept="image/*" name="cover_img" required>
     </div>

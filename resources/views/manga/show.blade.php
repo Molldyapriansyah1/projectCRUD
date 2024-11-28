@@ -11,7 +11,7 @@
         <p>Genre: {{ $manga->genre }}</p>
         <p>Sinopsis: {{ $manga->sinopsis }}</p>
         <p>Rating: {{ $manga->rating }}/10</p>
-        <img src="{{ url('storage/' . $manga->image) }}" alt="{{ $manga->name }}" class="img-fluid"><br>
+        <a href="{{ route('manga.create', $manga->id) }}" class="btn btn-primary">Detail</a><br>
         <a href="{{ route('home') }}" class="btn btn-secondary">Kembali</a>
     </div>
     </div>
