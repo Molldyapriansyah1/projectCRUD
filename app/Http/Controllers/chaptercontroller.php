@@ -72,14 +72,10 @@ class chaptercontroller extends Controller
         $chapter->delete();
         return redirect()->route('chapter.index')->with('success', 'Chapter deleted successfully');
     }
-
-   public function show(Chapter $chapter)
-   {
-       $view = 'chapters.chapter-show';
-       if (!view()->exists($view)) {
-           dd("View [$view] not found");
-       }
-       return view($view, compact('chapter'));
-   }
+    // In your ChapterController.php
+    public function show(Chapter $chapter)
+    {
+        return view('chapters.show', compact('chapter'));
+    }
 }
 

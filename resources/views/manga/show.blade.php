@@ -18,17 +18,16 @@
                 @foreach ($chapters as $chapter)
                     <li class="list-group-item">
                         <a href="{{ route('chapter.show', $chapter->id) }}">Chapter {{ $chapter->number_chapter }}</a>
+                        <span class="text-muted">{{ $chapter->created_at->format('M d, Y') }}</span>
                     </li>
                 @endforeach
             </ul>
         @else
             <p class="text-muted">No chapters available.</p>
         @endif
+        <br>
         <a href="{{ route('home') }}" class="btn btn-secondary">Kembali</a>
     </div>
 </div>
 @endsection
-
-
-
 

@@ -15,7 +15,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Chapter {{ $chapter->number_chapter }}</h5>
-                        
+                        <h6>Manga Name: {{ $chapter->manga->name ?? '' }}</h6>
                     </div>
                     <div class="card-footer">
                         <a href="#" class="btn btn-warning">edit</a>

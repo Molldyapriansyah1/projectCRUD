@@ -19,7 +19,7 @@
     <div class="form-group">
         <label for="manga_id">Manga:</label>
         <select name="manga_id" id="manga_id" class="form-control" required>
-            <option value="">-- Select Manga --</option>
+            <option value="">pilih Manga</option>
             @foreach ($mangas as $manga)
                 <option value="{{ $manga->id }}">{{ $manga->name }}</option>
             @endforeach

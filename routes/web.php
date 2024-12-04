@@ -38,3 +38,4 @@ Route::prefix('chapter')->group(function () {
     Route::delete('/destroy/{chapter}', [chaptercontroller::class, 'destroy'])->name('chapter.destroy');
 });
 
+Route::view('/chapter/{chapter}', 'chapter.show')->name('chapter.show');

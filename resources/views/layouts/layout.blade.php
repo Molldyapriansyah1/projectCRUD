@@ -31,6 +31,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('manga.index') }}">data manga</a></li>
                             <li><a class="dropdown-item" href="{{ route('manga.create') }}">Tambah Manga</a></li>
+                            <li><a class="dropdown-item" href="{{ route('chapter.index')}}">detail chapter</a></li>
                             
                         </ul>
                         <li class="nav-item">
