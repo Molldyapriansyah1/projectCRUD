@@ -11,9 +11,13 @@ class manga extends Model
         'artist',
         'genre',
         'sinopsis',
-        'image',
         'cover_image',
-        'rating',
+        'rating'
     ];
+    // In your Manga.php model
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
 }
 

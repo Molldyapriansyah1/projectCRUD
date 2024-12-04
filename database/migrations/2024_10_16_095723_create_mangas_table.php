@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('artist');
             $table->string('genre');
             $table->text('sinopsis');
-            $table->string('image'); // existing field
             $table->string('cover_image')->nullable(); // new field for cover
-            $table->integer('rating');
+            $table->integer('rating')->default(0);
             $table->timestamps();
         });
     }

@@ -32,6 +32,11 @@
         <input type="file" class="form-control" id="cover_img" accept="image/*" name="cover_img">
     </div>
 
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating:</label>
+        <input type="number" class="form-control" id="rating" name="rating" max="10">
+    </div>
+
     
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

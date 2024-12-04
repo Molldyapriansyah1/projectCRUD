@@ -21,7 +21,7 @@
                     <p class="card-text">Rating: {{ $ma->rating }}/10</p> 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('manga.show', $ma->id) }}" class="btn btn-primary">Detail</a>
+                    <a href="{{ route('manga.show', $ma->id) }}" class="btn btn-primary">baca</a>
                 </div>
             </div>
         </div>

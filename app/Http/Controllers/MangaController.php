@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Manga; // Use correct casing for model
+use App\Models\Chapter;
+use App\Models\Manga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,8 +38,8 @@ class MangaController extends Controller
             'artist' => $request->input('artist'),
             'genre' => $request->input('genre'),
             'sinopsis' => $request->input('sinopsis'),
+            'rating' => $request->input('rating'),
             'cover_image' => $coverImagePath,
-            'rating' => $request->input('rating')
         ]);
 
         return redirect()->route('manga.index')->with('success', 'Manga berhasil ditambahkan');
@@ -45,7 +47,8 @@ class MangaController extends Controller
 
     public function show(Manga $manga)
     {
-        return view('manga.show', compact('manga'));
+        $chapters = Chapter::where('manga_id', $manga->id)->get();
+        return view('manga.show', compact('manga', 'chapters'));
     }
 
     public function edit(Manga $manga)
@@ -81,7 +84,6 @@ class MangaController extends Controller
 
     public function destroy(Manga $manga)
     {
-
         if (Storage::exists('public/' . $manga->cover_image)) {
             Storage::delete('public/' . $manga->cover_image);
         }

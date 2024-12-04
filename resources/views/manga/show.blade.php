@@ -2,18 +2,33 @@
 
 @section('content')
 <div class="row mb-3">
-    <div class="col-3">
-        <img src="{{ url('storage/' . $manga->cover_image) }}" alt="{{ $manga->name }}" class="img-fluid" width="200" height="250">
+    <div class="col-md-3">
+        <img src="{{ url('storage/' . $manga->cover_image) }}" alt="{{ $manga->name }}" class="img-fluid rounded" width="200" height="250">
     </div>
-    <div class="col-9">
+    <div class="col-md-9">
         <h1>{{ $manga->name }}</h1>
-        <p>Artist: {{ $manga->artist }}</p>
-        <p>Genre: {{ $manga->genre }}</p>
-        <p>Sinopsis: {{ $manga->sinopsis }}</p>
-        <p>Rating: {{ $manga->rating }}/10</p>
-        <a href="{{ route('manga.create', $manga->id) }}" class="btn btn-primary">Detail</a><br>
+        <p><strong>Artist:</strong> {{ $manga->artist }}</p>
+        <p><strong>Genre:</strong> {{ $manga->genre }}</p>
+        <p><strong>Sinopsis:</strong> {{ $manga->sinopsis }}</p>
+        <p><strong>Rating:</strong> {{ $manga->rating }}/10</p>
+
+        @if($chapters && $chapters->isNotEmpty())
+        <h2>Chapters:</h2>
+            <ul class="list-group">
+                @foreach ($chapters as $chapter)
+                    <li class="list-group-item">
+                        <a href="{{ route('chapter.show', $chapter->id) }}">Chapter {{ $chapter->number_chapter }}</a>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <p class="text-muted">No chapters available.</p>
+        @endif
         <a href="{{ route('home') }}" class="btn btn-secondary">Kembali</a>
-    </div>
     </div>
 </div>
 @endsection
+
+
+
+

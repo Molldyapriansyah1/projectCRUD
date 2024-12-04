@@ -34,6 +34,10 @@
         <label for="cover_img" class="form-label">Cover Manga</label>
         <input type="file" class="form-control" id="cover_img" accept="image/*" name="cover_img" required>
     </div>
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="rating" name="rating" max="10" required>
+    </div>
     <button type="submit" class="btn btn-primary">tambah manga</button>
 </form>
 @endsection
